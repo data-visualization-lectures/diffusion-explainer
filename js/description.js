@@ -18,17 +18,15 @@ d3.select("#description")
         .attr("id", "description-section-what")
         .attr("class", "description-sec")
         .append("h1")
-            .text("What is Stable Diffusion?")
+            .text("Stable Diffusionとは何ですか?")
 d3.select("#description-section-what")
     .append("p")
         .html(`
-        Stable Diffusion is a text-to-image model that transforms a text prompt into a high-resolution image. 
-        For example, if you type in 
-        <span style="color: var(--text3);">a cute and adorable bunny</span>, 
-        Stable Diffusion generates high-resolution images depicting that 
-        &mdash; <span style="color: var(--text3);">a cute and adorable bunny</span> &mdash; 
-        in a few seconds. 
-        Click “Select another prompt” in Diffusion Explainer to change prompts and check the fascinating images generated from each prompt!`)
+Stable Diffusionは、テキスト・プロンプトを高解像度の画像に変換するテキスト画像生成モデルです。
+例えば、<span style="color: var(--text3);">かわいくて愛らしいうさぎ</span>と入力すると、Stable Diffusionは数秒でそれを描いた高解像度の画像&mdash; <span style="color: var(--text3);">かわいくて愛らしいうさぎ</span> &mdash;
+を生成します。
+Diffusion Explainerで「別のプロンプトを選択」をクリックして、プロンプトを変更し、各プロンプトから生成される魅力的な画像をチェックしてみてください！
+`)
 
 // How does Stable Diffusion work?
 d3.select("#description")
@@ -36,50 +34,50 @@ d3.select("#description")
         .attr("id", "description-section-how-work")
         .attr("class", "description-sec")
         .append("h1")
-            .text("How does Stable Diffusion work?")
+            .text("Stable Diffusionはどのように動作しますか？")
 d3.select("#description-section-how-work")
     .append("p")
         // .text('Stable Diffusion first generates a vector representation of an image depicted in the text prompt. This image representation is then upscaled into a high-resolution image.')
         .html(`
-        Stable Diffusion first changes the text prompt into a <span style="font-style: italic">text representation</span>, 
-        numerical values that summarize the prompt. 
-        The text representation is used to generate an <span style="font-style: italic">image representation</span>, 
-        which summarizes an image depicted in the text prompt. 
-        This image representation is then upscaled into a high-resolution image.
+Stable Diffusionは、まずテキスト・プロンプトを<span style="font-style: italic">テキスト表現</span>に変換します。
+これは、プロンプトを要約する数値です。
+このテキスト表現は<span style="font-style: italic">画像表現</span>の生成に使用され、
+画像表現はテキスト・プロンプトで描かれた画像を要約します。
+この画像表現は、その後高解像度の画像にアップスケールされます。
         `)
 d3.select("#description-section-how-work")
     .append("p")
         // .html('You may wonder why Stable Diffusion introduces image representation instead of directly generating high-resolution images. The reason is <span style="font-style: italic;">computational cost efficiency</span>. Doing most computations on representation, which summarizes an image in a compact form, significantly reduces the computational cost while maintaining high image quality.')
         .html(`
-        You may wonder why Stable Diffusion introduces image representation instead of directly generating high-resolution images. 
-        The reason is <span style="font-style: italic">computational efficiency</span>. 
-        Doing most computations on compact image representation instead of a high-resolution image significantly reduces the time and cost for the computations while maintaining high image quality.
+なぜStable Diffusionが高解像度画像を直接生成する代わりに画像表現を導入するのか疑問に思うかもしれません。
+その理由は<span style="font-style: italic">計算効率</span>です。
+高解像度画像ではなくコンパクトな画像表現でほとんどの計算を行うことで、高い画像品質を維持しながら計算時間とコストを大幅に削減できます。
         `)
 d3.select("#description-section-how-work")
     .append("p")
         // .html('The image representation starts as a random noise and is refined over multiple timesteps to reach the image representation for your text prompt. The number of timesteps is a hyperparameter determined before refining and typically set to 50.')
         .html(`
-        The image representation, which starts as a random noise, 
-        is refined over multiple timesteps to reach the image representation for a high-quality image with strong adherence to the text prompt. 
-        The number of refining timesteps is typically set as 50 or 100; we fix it to 50 in Diffusion Explainer.
+ランダムノイズから始まる画像表現は、
+複数のタイムステップにわたって洗練され、テキスト・プロンプトに強く準拠した高品質画像の画像表現に到達します。
+洗練のタイムステップ数は通常50または100に設定されます。Diffusion Explainerでは50に固定しています。
         `)
 d3.select("#description-section-how-work")
     .append("p")
-        .html('We break down the image generation process of Stable Diffusion into three main steps:')
+        .html('Stable Diffusionの画像生成プロセスを3つの主要なステップに分解します：')
         .append("ol")
         .attr("id", "description-generation-main-steps-ol")
 d3.select("#description-generation-main-steps-ol")
     .append("li")
-        .html('<a style="font-weight: 500" href="#description-subsec-text-representation-generation">Text Representation Generation</a>: Stable Diffusion converts a text prompt into a text vector representation.')
+        .html('<a style="font-weight: 500" href="#description-subsec-text-representation-generation">テキスト表現生成</a>：Stable Diffusionはテキスト・プロンプトをテキスト・ベクトル表現に変換します。')
 d3.select("#description-generation-main-steps-ol")
     .append("li")
-        .html('<a style="font-weight: 500" href="#description-subsec-image-representation-refining">Image Representation Refining</a>: Starting with random noise, Stable Diffusion refines the image representation little by little, with the guidance of the text representation. Stable Diffusion repeats the refining over multiple timesteps (50 in our Diffusion Explainer).')
+        .html('<a style="font-weight: 500" href="#description-subsec-image-representation-refining">画像表現の洗練</a>：ランダムノイズから始めて、Stable Diffusionはテキスト表現のガイダンスのもと、画像表現を少しずつ洗練していきます。Stable Diffusionは複数のタイムステップ（私たちのDiffusion Explainerでは50）にわたってこの洗練を繰り返します。')
 d3.select("#description-generation-main-steps-ol")
     .append("li")
-        .html('<a style="font-weight: 500" href="#description-subsec-image-upscaling">Image Upscaling</a>: Stable Diffusion upscales the image representation into a high-resolution image.')
+        .html('<a style="font-weight: 500" href="#description-subsec-image-upscaling">画像アップスケーリング</a>：Stable Diffusionは画像表現を高解像度画像にアップスケールします。')
 d3.select("#description-section-how-work")
     .append("p")
-        .text("Now, let's look closer into each process.")
+        .text("では、各プロセスをより詳しく見ていきましょう。")
 
 // Text Representation Generation
 d3.select("#description-section-how-work")
@@ -87,7 +85,7 @@ d3.select("#description-section-how-work")
         .attr("id", "description-subsec-text-representation-generation")
         .attr("class", "description-subsec")
         .append("h2")
-            .text("Text Representation Generation")
+            .text("テキスト表現生成")
 d3.select("#description-subsec-text-representation-generation")
     .append("img")
         .attr("class", "description-gif")
@@ -97,12 +95,13 @@ d3.select("#description-subsec-text-representation-generation")
     .append("p")
         // .text("Text representation generation consists of tokenizing and text encoding.")
         .html(`
-        Clicking Text Representation Generation shows how a text prompt is converted into a text representation, 
-        a vector that summarizes the prompt. 
-        It consists of two steps: 
-        <span style="font-style: italic">tokenizing</span> 
-        and 
-        <span style="font-style: italic">text encoding</span>.`)
+テキスト表現生成をクリックすると、テキスト・プロンプトがプロンプトを要約するベクトルであるテキスト表現に変換される方法が表示されます。
+これは2つのステップで構成されます：
+<span style="font-style: italic">トークン化</span>
+と
+<span style="font-style: italic">テキスト・エンコーディング</span>
+です。
+        `)
 // Tokenizing
 d3.select("#description-subsec-text-representation-generation")
     .append("div")
@@ -111,82 +110,26 @@ d3.select("#description-subsec-text-representation-generation")
 d3.select("#description-subsubsec-tokenizing")
     .append("div")
         .attr("class", "description-subsubsec-title")
-        .html('1. Tokenizing')
+        .html('1. トークン化')
 d3.select("#description-subsubsec-tokenizing")
     .append("p")
         // .html("Tokenizing is a common way to handle text input to standardize the format of the input and enable the text input to be processed by neural networks.")
-        .html(`Tokenizing is a common way to handle text data to change the text into numbers and process them with neural networks.`)
+        .html(`トークン化は、テキストを数値に変換してニューラルネットワークで処理するために、テキストデータを扱う一般的な方法です。`)
 d3.select("#description-subsubsec-tokenizing")
     .append("div")
         .attr("class", "description-paragraph")
         .attr("id", "description-subsubsec-tokenizing-token-example-paragraph")
+
+
+
 d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
     .append("span")
-    .html(`Stable Diffusion tokenizes a text prompt into a sequence of tokens. 
-    For example, it splits the text prompt `)
+    .html(`Stable Diffusionはテキスト・プロンプトをトークンのシーケンスにトークン化します。
+   例えば、テキスト・プロンプト `)
 d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
     .append("span")
         .style("color", "var(--text3)")
-        .text("a cute and adorable bunny ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text("into the tokens ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("a")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(", ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("cute")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(", ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("and")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(", ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("adorable")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(", and ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("bunny")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(". Also, to mark the beginning and end of the prompt, Stable Diffusion adds ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("<start>")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(" and ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("<end>")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(" tokens at the beginning and the end of the tokens. The resulting token sequence for the above example would be ")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .attr("class", "text-vector-generator-token description-token")
-        .text("<start>")
-d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
-    .append("span")
-        .text(", ")
+        .text("a cute and adorable bunny は")
 d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
     .append("span")
         .attr("class", "text-vector-generator-token description-token")
@@ -221,19 +164,85 @@ d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
         .text("bunny")
 d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
     .append("span")
-        .text(", and ")
+        .text(" にトークン化されます。")
+
+
+
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text("また、プロンプトの始まりと終わりを示すため、Stable Diffusion は ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("<start>")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(" や ")
 d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
     .append("span")
         .attr("class", "text-vector-generator-token description-token")
         .text("<end>")
 d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
     .append("span")
-        .text(".")
+        .text(" といったトークンをトークン群の最初と最後に追加します。")
+
+
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text("上記の例の結果となるトークンシーケンスは以下のようになります。")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("<start>")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(", ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("a")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(", ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("cute")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(", ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("and")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(", ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("adorable")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(", ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("bunny")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .text(", ")
+d3.select("#description-subsubsec-tokenizing-token-example-paragraph")
+    .append("span")
+        .attr("class", "text-vector-generator-token description-token")
+        .text("<end>")
+
+
 
 d3.select("#description-subsubsec-tokenizing")
     .append("p")
         // .html('To ensure that all token sequences have the same length for easier computation, Stable Diffusion pads or truncates the token sequences to exactly 77 tokens. If the input prompt has fewer than 77 tokens, <span class="text-vector-generator-token description-token" id="description-token-end"></span> tokens are added to the end of the sequence until it reaches 77 tokens. If the input prompt has more than 77 tokens, the last 77 tokens are retained and the rest are truncated. The number of tokens was set to balance performance and computational efficiency.')
-        .html('For easier computation, Stable Diffusion keeps the token sequences of any text prompts to have the same length of 77 by padding or truncating. If the input prompt has fewer than 77 tokens, <span class="text-vector-generator-token description-token" id="description-token-end"></span> tokens are added to the end of the sequence until it reaches 77 tokens. If the input prompt has more than 77 tokens, the first 77 tokens are retained and the rest are truncated. The length of 77 was set to balance performance and computational efficiency.')
+        .html('計算を簡単にするため、Stable Diffusionはパディングまたは切り詰めによって、すべてのテキスト・プロンプトのトークンシーケンスを同じ長さの77に保ちます。入力プロンプトが77トークン未満の場合、<span class="text-vector-generator-token description-token" id="description-token-end"></span>トークンが77トークンに達するまでシーケンスの末尾に追加されます。入力プロンプトが77トークンを超える場合、最初の77トークンが保持され、残りは切り詰められます。77という長さは、性能と計算効率のバランスを取るために設定されました。')
 d3.select("#description-token-end").text("<end>")
 // Text encoding
 d3.select("#description-subsec-text-representation-generation")
@@ -243,13 +252,14 @@ d3.select("#description-subsec-text-representation-generation")
 d3.select("#description-subsubsec-text-encoding")
     .append("div")
         .attr("class", "description-subsubsec-title")
-        .html('2. Text encoding')
+        .html('2. テキスト・エンコーディング')
 d3.select("#description-subsubsec-text-encoding")
     .append("p")
-        .html(`Stable Diffusion converts the token sequence into a text representation. To use the text representation for guiding image generation, Stable Diffusion ensures that the text representation contains the information related to the image depicted in the prompt. This is done by using a special neural network called <a href="https://openai.com/research/clip">CLIP</a>.`)
+        .html(`Stable Diffusionはトークンシーケンスをテキスト表現に変換します。画像生成のガイダンスにテキスト表現を使用するため、Stable Diffusionはテキスト表現がプロンプトで描かれた画像に関連する情報を含むことを保証します。これは<a href="https://openai.com/research/clip">CLIP</a>と呼ばれる特別なニューラルネットワークを使用することで行われます。
+`)
 d3.select("#description-subsubsec-text-encoding")
     .append("p")
-        .html("CLIP, which consists of an image encoder and a text encoder, is trained to encode an image and its text description into vectors that are similar to each other. Therefore, the text representation for a prompt computed by CLIP’s text encoder is likely to contain information about the images described in the prompt. You can display the visual explanations by clicking the Text Encoder above.")
+        .html("画像エンコーダーとテキスト・エンコーダーで構成されるCLIPは、画像とそのテキスト記述を互いに似たベクトルにエンコードするよう訓練されています。したがって、CLIPのテキスト・エンコーダーによって計算されたプロンプトのテキスト表現は、プロンプトで記述された画像に関する情報を含んでいる可能性が高いです。上記のText Encoderをクリックすることで視覚的説明を表示できます。")
 
 // Image Representation Refining
 d3.select("#description-section-how-work")
@@ -257,7 +267,7 @@ d3.select("#description-section-how-work")
         .attr("id", "description-subsec-image-representation-refining")
         .attr("class", "description-subsec")
         .append("h2")
-            .text("Image Representation Refining")
+            .text("画像表現の洗練")
 d3.select("#description-subsec-image-representation-refining")
     .append("img")
         .attr("class", "description-gif")
@@ -265,7 +275,8 @@ d3.select("#description-subsec-image-representation-refining")
         .attr("src", "assets/gif/irr.gif")
 d3.select("#description-subsec-image-representation-refining")
     .append("p")
-        .html("Stable Diffusion generates image representation, a vector that numerically summarizes a high-resolution image depicted in the text prompt. This is done by refining a randomly initialized noise over multiple timesteps to gradually improve the image quality and adherence to the prompt. You can change the initial random noise by adjusting the <span style='font-style: italic;'>seed </span> in Diffusion Explainer. Click Image Representation Refiner to visualize each refinement step, which involves noise prediction and removal.")
+        .html("Stable Diffusionは、テキスト・プロンプトで描かれた高解像度画像を数値的に要約するベクトルである画像表現を生成します。これは、ランダムに初期化されたノイズを複数のタイムステップにわたって洗練し、画像品質とプロンプトへの準拠性を徐々に改善することで行われます。Diffusion Explainerの<span style='font-style: italic;'>シード</span>を調整することで、初期のランダムノイズを変更できます。Image Representation Refinerをクリックして、ノイズ予測と除去を含む各洗練ステップを視覚化してください。")
+
 // Noise Prediction
 d3.select("#description-subsec-image-representation-refining")
     .append("div")
@@ -274,35 +285,30 @@ d3.select("#description-subsec-image-representation-refining")
 d3.select("#description-subsubsec-noise-prediction")
     .append("div")
         .attr("class", "description-subsubsec-title")
-        .html('1. Noise Prediction')
+        .html('1. ノイズ予測')
 d3.select("#description-subsubsec-noise-prediction")
     .append("p")
-        .html("At each timestep, a neural network called UNet predicts noise in the image representation of the current timestep. UNet takes three inputs:")
+        .html("各タイムステップにおいて、UNetと呼ばれるニューラルネットワークが現在のタイムステップの画像表現のノイズを予測します。UNetは3つの入力を受け取ります：")
 d3.select("#description-subsubsec-noise-prediction")
     .append("ol")
         .attr("id", "description-unet-input-ol")
 d3.select("#description-unet-input-ol")
     .append("li")
-    .html(`<span style="font-weight: 500;">Image representation</span> of the current timestep`)
+    .html(`現在のタイムステップの<span style="font-weight: 500;">画像表現</span>`)
 d3.select("#description-unet-input-ol")
     .append("li")
-    .html(`<span style="font-weight: 500; color: var(--text3);">Text representation</span> of the prompt to guide what noise should be removed from the current image representation to generate an image adhering to the text prompt`)
+    .html(`テキスト・プロンプトに準拠した画像を生成するために現在の画像表現からどのノイズを除去すべきかをガイドする、プロンプトの<span style="font-weight: 500; color: var(--text3);">テキスト表現</span>`)
 d3.select("#description-unet-input-ol")
     .append("li")
-    .html(`<span style="font-weight: 500;">Timestep</span> to indicate the amount of noise remaining in the current image representation`)
+    .html(`現在の画像表現に残っているノイズの量を示す<span style="font-weight: 500;">タイムステップ</span>`)
 
 d3.select("#description-subsubsec-noise-prediction")
     .append("p")
-        .html(`In other words, 
-        UNet predicts a <span style="color: var(--text3);">prompt-conditioned noise</span> in the current image representation 
-        under the guidance of the text prompt's representation and timestep.`)
+        .html(`言い換えると、UNetはテキスト・プロンプトの表現とタイムステップのガイダンスのもと、現在の画像表現における<span style="color: var(--text3);">プロンプト条件付きノイズ</span>を予測します。`)
 d3.select("#description-subsubsec-noise-prediction")
     .append("p")
-        .html(`However, even though we condition the noise prediction with the text prompt, 
-        the generated image representation usually does not adhere strongly enough to the text prompt. 
-        To improve the adherence, 
-        Stable Diffusion measures the impact of the prompt by additionally predicting <span style="color: #909090;">generic noise conditioned on an empty prompt (" ")</span>
-        and subtracting it from the prompt-conditioned noise:`) 
+        .html(`しかし、ノイズ予測をテキスト・プロンプトで条件付けしても、生成された画像表現は通常、テキスト・プロンプトに十分強く準拠しません。
+準拠性を改善するため、Stable Diffusionは追加で<span style="color: #909090;">空のプロンプト（" "）で条件付けされた汎用ノイズ</span>を予測し、プロンプト条件付きノイズからそれを減算することで、プロンプトの影響を測定します：`) 
         // The final noise prediction is a weighted sum of the predicted 
         // <span style="color: #a0a0a0;">generic noise</span> and the
         // <span style="color: var(--text3);">prompt-conditioned noise</span>
@@ -318,10 +324,8 @@ d3.select("#description-subsubsec-noise-prediction")
         <span class="description-equation-term" style="color: #909090; background-color: #a0a0a020;">generic noise</span>`)
 d3.select("#description-subsubsec-noise-prediction")
     .append("p")
-    .html(`
-    In other words, the generic noise contributes to better image quality, 
-    while the impact of the prompt contributes to the adherence to the prompt. 
-    The final noise is a weighted sum of them controlled by a value called <span style="color: var(--text3);">guidance scale</span>:`)
+    .html(`言い換えると、汎用ノイズはより良い画像品質に貢献し、プロンプトの影響はプロンプトへの準拠性に貢献します。
+最終的なノイズは、<span style="color: var(--text3);">ガイダンス・スケール</span>と呼ばれる値によって制御される、それらの重み付き和です：`)
 d3.select("#description-subsubsec-noise-prediction")
     .append("p")
         .attr("class", "description-equation")
@@ -354,11 +358,9 @@ d3.select("#description-equation-gs")
         .text("impact of prompt")
 d3.select("#description-subsubsec-noise-prediction")
     .append("p")
-    .html(`A guidance scale of 0 means no adherence to the text prompt, 
-    while a guidance scale of 1 means using the original prompt-conditioned noise. 
-    Larger guidance scales result in stronger adherence to the text prompt, 
-    while too large values can lower the image quality. 
-    Change the guidance scale value in Diffusion Explainer and see how it changes the generated images.`)
+    .html(`ガイダンス・スケールが0の場合はテキスト・プロンプトへの準拠なしを意味し、ガイダンス・スケールが1の場合は元のプロンプト条件付きノイズを使用することを意味します。
+より大きなガイダンス・スケールはテキスト・プロンプトへのより強い準拠をもたらしますが、値が大きすぎると画像品質が低下する可能性があります。
+Diffusion Explainerでガイダンス・スケール値を変更して、生成画像がどのように変化するかを確認してください。`)
 
 // Noise Removal
 d3.select("#description-subsec-image-representation-refining")
@@ -368,13 +370,13 @@ d3.select("#description-subsec-image-representation-refining")
 d3.select("#description-subsubsec-noise-removal")
     .append("div")
         .attr("class", "description-subsubsec-title")
-        .html('2. Noise Removal')
+        .html('2. ノイズ除去')
 d3.select("#description-subsubsec-noise-removal")
     .append("p")
-        .html("Stable Diffusion then decides how much of the predicted noise to actually remove from the image, as determined by an algorithm called scheduler. Removing small amounts of noise helps refine the image gradually and produce sharper images.")
+        .html("Stable Diffusionは次に、スケジューラーと呼ばれるアルゴリズムによって決定される、予測されたノイズのうち実際にどの程度を画像から除去するかを決定します。少量のノイズを除去することで、画像を徐々に洗練し、よりシャープな画像を生成できます。")
 d3.select("#description-subsubsec-noise-removal")
     .append("p")
-        .html("The scheduler makes this decision by accounting for the total number of timesteps. The downscaled noise is then subtracted from the image representation of the current timestep to obtain the refined representation, which becomes the image representation of the next timestep:")
+        .html("スケジューラーは総タイムステップ数を考慮してこの決定を行います。ダウンスケールされたノイズは現在のタイムステップの画像表現から減算され、洗練された表現を得ます。これが次のタイムステップの画像表現となります：")
 d3.select("#description-subsubsec-noise-removal")
     .append("p")
         .attr("class", "description-equation")
@@ -409,14 +411,14 @@ d3.select("#description-section-how-work")
         .attr("id", "description-subsec-image-upscaling")
         .attr("class", "description-subsec")
             .append("h2")
-                .text("Image Upscaling")
+                .text("画像アップスケーリング")
 d3.select("#description-subsec-image-upscaling")
     .append("img")
     .attr("class", "description-gif")
     .attr("src", "assets/gif/upscale.gif")
 d3.select("#description-subsec-image-upscaling")
     .append("p")
-        .text("After all denoising steps have been completed, Stable Diffusion uses a neural network called Decoder to upscale the image representation into a high-resolution image. The refined image representation fully denoised with the guidance of the text representations would result in a high-resolution image strongly adhering to the text prompt.")
+        .text("すべてのデノイジングステップが完了した後、Stable DiffusionはDecoderと呼ばれるニューラルネットワークを使用して、画像表現を高解像度画像にアップスケールします。テキスト表現のガイダンスによって完全にデノイジングされた洗練された画像表現は、テキスト・プロンプトに強く準拠した高解像度画像を生成します。")
 
 // Comparison View
 d3.select("#description")
@@ -424,7 +426,7 @@ d3.select("#description")
         .attr("id", "description-section-comparison")
         .attr("class", "description-sec")
         .append("h1")
-            .text("How do prompt keywords affect image generation?")
+            .text("プロンプト・キーワードは画像生成にどのような影響を与えますか？")
             .style("margin-bottom", "0.5em")
 d3.select("#description-section-comparison")
     .append("img")
@@ -433,18 +435,18 @@ d3.select("#description-section-comparison")
         .attr("src", "assets/gif/rcv.gif")
 d3.select("#description-section-comparison")
     .append("p")
-        .html(`
-        Writing text prompts can be very heuristic and repetitive. 
-        For example, starting from the prompt 
-        <span style="color: var(--text3); font-style: italic;">a cute bunny</span>, 
-        you should repetitively add and remove keywords such as 
-        <span style="color: var(--text3); font-style: italic;">in the style of cute pixar character</span>, 
-        until you reach to the desired image.`)
+        .html(`テキスト・プロンプトの作成は非常に発見的で反復的になることがあります。
+例えば、プロンプト
+<span style="color: var(--text3); font-style: italic;">かわいいうさぎ</span>
+から始めて、
+<span style="color: var(--text3); font-style: italic;">かわいいピクサーキャラクターのスタイル</span>
+などのキーワードを繰り返し追加・削除して、望む画像に到達するまで続ける必要があります。`)
+
 d3.select("#description-section-comparison")
     .append("p")
-        .text(`
-        Therefore, understanding how prompt keywords affect image generation would be greatly helpful for writing and refining your prompt. 
-        Click the keywords highlighted in the text prompt and compare the image generation of the two prompts that differ only in the keywords.`)
+        .text(`したがって、プロンプト・キーワードが画像生成にどのような影響を与えるかを理解することは、プロンプトの作成と改良に非常に役立ちます。
+テキスト・プロンプトでハイライトされたキーワードをクリックして、そのキーワードのみが異なる2つのプロンプトの画像生成を比較してください。
+`)
 
 // What can we change
 d3.select("#description")
@@ -452,25 +454,25 @@ d3.select("#description")
         .attr("id", "description-section-change")
         .attr("class", "description-sec")
         .append("h1")
-            .text("What can we change?")
+            .text("何を変更できますか？")
 d3.select("#description-section-change")
     .append("p")
-        .text("You have control over text prompt and hyperparameters in our Diffusion Explainer to change the generated images:")
+        .text("私たちのDiffusion Explainerでは、生成される画像を変更するためにテキスト・プロンプトとハイパーパラメータをコントロールできます：")
 d3.select("#description-section-change")
     .append("ul")
         .attr("id", "description-hyperparameter-ol")
 d3.select("#description-hyperparameter-ol")
     .append("li")
-    .html(`Text prompt: Description of the image you want to generate. A more detailed text prompt generally leads to better quality images.`)
+    .html(`テキスト・プロンプト：生成したい画像の説明。より詳細なテキスト・プロンプトは一般的により高品質な画像につながります。`)
 d3.select("#description-hyperparameter-ol")
     .append("li")
-    .html(`Seed: Random seed for the initialization of the image representation at timestep 0. Changing the seed will result in different image representation at timestep 0 and therefore different images.`)
+    .html(`シード：タイムステップ0での画像表現の初期化のためのランダムシード。シードを変更すると、タイムステップ0で異なる画像表現が生成され、したがって異なる画像が生成されます。`)
 d3.select("#description-hyperparameter-ol")
     .append("li")
-    .html(`Guidance scale: How closely the generated image adheres to the text prompt. Increasing the guidance scale leads to stronger adherence but may make the generated images overly exaggerated.`)
+    .html(`ガイダンス・スケール：生成された画像がテキスト・プロンプトにどの程度密接に従うか。ガイダンス・スケールを上げると、より強い従属性が得られますが、生成画像が過度に誇張される可能性があります。`)
 d3.select("#description-section-change")
     .append("p")
-        .text("Additionally, there are other hyperparameters that are not included in the Diffusion Explainer, such as the total number of timesteps, image size, and the type of scheduler.")
+        .text("さらに、総タイムステップ数、画像サイズ、スケジューラーの種類など、Diffusion Explainerに含まれていない他のハイパーパラメータもあります。")
 
 // How implemented?
 d3.select("#description")
@@ -478,10 +480,10 @@ d3.select("#description")
         .attr("id", "description-section-implement")
         .attr("class", "description-sec")
         .append("h1")
-            .text("How is Diffusion Explainer implemented?")
+            .text("Diffusion Explainerはどのように実装されていますか？")
 d3.select("#description-section-implement")
     .append("p")
-        .text("We implement the interactive visualizations for Diffusion Explainer using Javascript and D3.js.")
+        .text("私たちはDiffusion ExplainerのインタラクティブなビジュアライゼーションをJavascriptとD3.jsを使用して実装しています。")
 
 // How implemented?
 d3.select("#description")
@@ -492,7 +494,7 @@ d3.select("#description")
             .text("Who developed the Diffusion Explainer?")
 d3.select("#description-section-who")
     .append("p")
-        .html(`Diffusion Explainer was developed by 
+        .html(`Diffusion Explainer は以下のメンバーによって開発されました。 
         <a href="http://www.seongmin.xyz">Seongmin Lee</a>, 
         <a href="https://bhoov.com">Ben Hoover</a>, 
         <a href="http://hendrik.strobelt.com">Hendrik Strobelt</a>, 
@@ -502,5 +504,4 @@ d3.select("#description-section-who")
         <a href="https://www.linkedin.com/in/kevinyli/">Kevin Li</a>, 
         <a href="https://haekyu.com">Haekyu Park</a>, 
         <a href="https://alexanderyang.me">Alex Yang</a>, 
-        and 
         <a href="https://poloclub.github.io/polochau/">Polo Chau</a>.`)
